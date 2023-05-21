@@ -1,0 +1,1 @@
+UPDATE TBPRODUTO SET NOME = :nome, DESCRICAO = :descricao, VALOR = :valor, DATAALTERACAO = :dataAlteracao, FLATIVO = :flAtivo WHERE ID = :id
