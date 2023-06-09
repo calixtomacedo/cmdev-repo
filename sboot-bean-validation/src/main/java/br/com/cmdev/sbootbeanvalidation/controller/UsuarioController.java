@@ -11,9 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-@RestController
+@RestController()
 @RequestMapping("/app/usuarios")
 public class UsuarioController {
 
@@ -27,7 +29,14 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<List<Usuario>> listaTodos() {
-        return ResponseEntity.ok(service.listaTodos());
+        List<Usuario> usuarios = service.listaTodos();
+        /*
+        List<Integer> ids = new ArrayList<>(Arrays.asList(2, 5, 7));
+        ids.forEach(id -> {
+            usuarios.removeIf(user -> user.getId().equals(id));
+        });
+        */
+        return ResponseEntity.ok(usuarios);
     }
 
     @GetMapping("/{id}")

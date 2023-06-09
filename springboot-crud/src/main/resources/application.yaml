@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cmdevdb?useTimezone=true?serverTimezone=UTC?useUnicode=yes?characterEncoding=UTF-8?useSSL=false
+    username: cmdev_user
+    password: access01@CMdev
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
