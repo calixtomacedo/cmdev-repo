@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'cafe-com-bug';
+
+  exibeHome: boolean = true;
+
+  /**
+ * destruir
+ */
+  public destruir() {
+    this.exibeHome = false;
+  }
+
 }
