@@ -1,4 +1,13 @@
 <app-navbar></app-navbar>
-<app-home *ngIf="exibeHome"></app-home>
-<button (click)="destruir()" class="btn btn-primary">Destruir</button>
+<!--
+  <app-home *ngIf="exibeHome"></app-home>
+  <button (click)="destruir()" class="btn btn-primary">Destruir</button>
+-->
+<app-base-ui>
+  <!--
+    <app-home></app-home>
+  -->
+  <app-users></app-users>
+</app-base-ui>
+
 <app-footer></app-footer>

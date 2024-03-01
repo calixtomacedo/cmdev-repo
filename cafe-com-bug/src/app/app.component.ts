@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  exibeHome: boolean = true;
+  //exibeHome: boolean = true;
 
   /**
  * destruir
  */
   public destruir() {
-    this.exibeHome = false;
+    //this.exibeHome = false;
   }
 
 }
