@@ -1,44 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
 
-  /*
-  users: String[] = [
-    'Calixto Macedo',
-    'Rosimeire Santos',
-    'Adrielly Thamyres',
-    'Davi Lucca Macedo',
-    'Izabel Macedo'
-  ]
-  */
+  user: User | undefined;
+  userForm: FormGroup = new FormGroup({});
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.iniciarForm();
+  }
+
+  iniciarForm() {
+    this.userForm = this.formBuilder.group({
+      nome: ['', [Validators.required, Validators.maxLength(250)]],
+      idade: ['', [Validators.required, Validators.min(1), Validators.max(110)]],
+    });
+  }
+
+  submitForm() {
+    if(this.userForm.valid){
+      console.log(this.userForm.value);
+    }
+  }
 
   users: User[] = [
     {
-    nome: 'Calixto Macedo',
-    idade: 52
+      nome: 'Calixto Macedo',
+      idade: 52
     },
     {
-    nome: 'Rosimeire Santos',
-    idade: 38
+      nome: 'Rosimeire Santos',
+      idade: 38
     },
     {
-    nome: 'Adrielly Thamyres',
-    idade: 22
+      nome: 'Adrielly Thamyres',
+      idade: 22
     },
     {
-    nome: 'Davi Lucca Macedo',
-    idade: 1
-    },
-    {
-    nome: 'Izabel Macedo',
-    idade: 79
-    },
+      nome: 'Davi Lucca Macedo',
+      idade: 1
+    }
   ];
+
+  userSelecionado(user: User) {
+    this.user = user;
+  }
+
 
 }
