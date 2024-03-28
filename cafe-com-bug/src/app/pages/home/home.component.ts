@@ -1,26 +1,19 @@
 import { Component, DoCheck } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-//export class HomeComponent implements OnDestroy, DoCheck {
-  export class HomeComponent implements DoCheck {
-  num: number = 1
 
-  ngDoCheck(): void {
-    console.log('Uma mudança foi feita');
-  }
+export class HomeComponent {
 
-  /*
-  ngOnDestroy(): void {
-    console.log('Componente Home destruído');
-  }
-  */
+  user: User | undefined;
 
-  public adicionaUm(){
-    this.num++;
+  constructor(private userService: UserService){
+    this.user = userService.getUser();
   }
 
 }

@@ -1,5 +1,5 @@
-<p>{{num}}</p>
-
-<p>
-  <bUtton class="btn btn-success" (click)="adicionaUm()">Adiciona 1</bUtton>
-</p>
+<div *ngIf="user" class="mt-3 border col-md p-3">
+  <h2>Usuário selecionado</h2>
+  <p>Nome: {{ user.nome }}</p>
+  <p>Idade: {{ user.idade }}</p>
+</div>
