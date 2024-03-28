@@ -11,7 +11,8 @@ export class UserService {
   
   constructor() { }
 
-  setUser(user: User) {
+  setUser(user: User | undefined) {
+    localStorage.setItem('user', JSON.stringify(user));
     this.user = user;
   }
 
