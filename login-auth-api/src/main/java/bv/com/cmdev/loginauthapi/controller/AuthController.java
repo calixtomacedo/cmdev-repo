@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -40,6 +42,8 @@ public class AuthController {
             user.setName(request.name());
             user.setEmail(request.email());
             user.setPassword(passwordEncoder.encode(request.password()));
+            user.setIsActive(true);
+            user.setCreateDate(LocalDateTime.now());
             this.repository.save(user);
 
             String token = this.tokenService.geneteToken(user);
