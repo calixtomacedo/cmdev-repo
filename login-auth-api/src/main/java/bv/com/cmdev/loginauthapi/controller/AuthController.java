@@ -43,7 +43,7 @@ public class AuthController {
             user.setEmail(request.email());
             user.setPassword(passwordEncoder.encode(request.password()));
             user.setIsActive(true);
-            user.setCreateDate(LocalDateTime.now());
+            user.setCreationDate(LocalDateTime.now());
             this.repository.save(user);
 
             String token = this.tokenService.geneteToken(user);
