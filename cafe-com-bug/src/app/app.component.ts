@@ -6,8 +6,10 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  
+export class AppComponent {
+  // implements OnInit
+
+  /*
   ngOnInit(): void {
     this.getUser();
   }
@@ -20,5 +22,6 @@ export class AppComponent implements OnInit {
     const user = localStorage.getItem('user');
     this.userService.setUser(user ? JSON.parse(user) : undefined);
   }
- 
+  */
+
 }
