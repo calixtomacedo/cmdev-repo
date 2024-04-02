@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
+import { UserGit } from '../../models/userGit';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { User } from '../../models/user';
 })
 
 export class HomeComponent implements OnInit {
+
+  user: UserGit | undefined;
 
   /*
   user: User | undefined;
@@ -26,8 +29,8 @@ export class HomeComponent implements OnInit {
   }
 
   getGitHubUser() {
-    this.service.getGitHubUser('facebook').subscribe((response: any) => {
-      console.log(response);
+    this.service.getGitHubUser('bancobv').subscribe((response: UserGit) => {
+      this.user = response;
     })
   }
 
