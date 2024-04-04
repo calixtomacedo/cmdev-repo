@@ -5,26 +5,34 @@
     <p>Idade: {{ user.idade }}</p>
   </div>
 -->
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Busque por um username" aria-label="Busque por um username" [(ngModel)]="usermane">
+      <button class="btn btn-success" type="button" (click)="getGitHubUser()">Pesquisar</button>
+    </div>
+  </div>
+</div>
 
-<div class="container">
+<div class="container" *ngIf="user">
   <div class="row justify-content-center">
     <div class="col-md-4">
       <div class="card text-center">
-        <img [src]="user?.avatar_url" alt="" class="card-image-top">
+        <img [src]="user.avatar_url" alt="" class="card-image-top">
         <div class="card-body">
-          <h5 class="card-title">{{ user?.name }}</h5>
-          <p class="card-text">{{'@' + user?.login }}</p>
+          <h5 class="card-title">{{ user.name }}</h5>
+          <p class="card-text">{{'@' + user.login }}</p>
             <div class="text-center row">
               <div class="col-md">
                 <p class="m-0"><b>Seguidores</b></p>
-                <p class="card-text">{{ user?.followers }}</p>
+                <p class="card-text">{{ user.followers }}</p>
               </div>
               <div class="col-md">
                 <p class="m-0"><b>Seguindo</b></p>
-                <p class="card-text">{{ user?.following }}</p>
+                <p class="card-text">{{ user.following }}</p>
               </div>
             </div>
-          <a class="btn btn-primary mt-3" [href]="user?.html_url">Visitar perfil</a>
+          <a class="btn btn-primary mt-3" [href]="user.html_url">Visitar perfil</a>
         </div>
       </div>
     </div>

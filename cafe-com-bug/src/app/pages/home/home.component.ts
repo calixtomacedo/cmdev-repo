@@ -2,6 +2,7 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { UserGit } from '../../models/userGit';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,10 @@ import { UserGit } from '../../models/userGit';
   styleUrl: './home.component.css'
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   user: UserGit | undefined;
+  usermane: string = '';
 
   /*
   user: User | undefined;
@@ -20,19 +22,16 @@ export class HomeComponent implements OnInit {
   }
   */
 
-  constructor( private service: UserService) {
+  constructor( private service: UserService, private toastr: ToastrService) {
 
-  }
-
-  ngOnInit(): void {
-    this.getGitHubUser();
   }
 
   getGitHubUser() {
-    this.service.getGitHubUser('bancobv').subscribe((response: UserGit) => {
+    this.service.getGitHubUser(this.usermane).subscribe((response: UserGit) => {
       this.user = response;
-    })
+    }, (resp) => {
+      this.toastr.error(resp.error.message);
+    });
   }
-
 
 }
