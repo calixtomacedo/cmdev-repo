@@ -27,10 +27,18 @@ export class HomeComponent {
   }
 
   getGitHubUser() {
+    if (this.usermane.length == 0) {
+      this.toastr.error('O campo username é obrigatório');
+      return;
+    }
+
     this.service.getGitHubUser(this.usermane).subscribe((response: UserGit) => {
       this.user = response;
     }, (resp) => {
-      this.toastr.error(resp.error.message);
+      if(resp.error.message == 'Not Found') {
+        this.toastr.error('Usuário não encontrado');
+      }
+      //this.toastr.error(resp.error.message);
     });
   }
 
