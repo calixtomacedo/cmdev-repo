@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: sboot-atom-user
+  main:
+    banner-mode: OFF
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  beaninfo:
+    ignore: true
+  profiles:
+    default: local
+
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#         issuer-uri: ${}
+#          jwk-set-uri: ${}
+
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: false
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+---
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: true
+  error:
+    whitelabel:
+      enabled: false
+
+  management:
+    server:
+      port: 9090
+    endpoint:
+      health:
+        show-details: always
+    endpoints:
+      web:
+        exposure:
+          include: info, health, metrics, prometheus
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:mysql://192.168.1.100:3306/cmdev-db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: mysql@Root
