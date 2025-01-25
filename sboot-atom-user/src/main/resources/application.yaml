@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: sboot-atom-user
+  main:
+    banner-mode: OFF
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  beaninfo:
+    ignore: true
+  profiles:
+    default: local
+
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: true
+  error:
+    whitelabel:
+      enabled: false
