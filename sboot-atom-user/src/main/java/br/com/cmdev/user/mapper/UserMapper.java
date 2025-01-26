@@ -8,6 +8,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface UserMapper {
 
@@ -23,4 +25,7 @@ public interface UserMapper {
     @Mapping(target = "changeDate", source = "changeDate", dateFormat = DATE_FORMAT)
     UserResponse userToUserResponseMap(User user);
 
+    @Mapping(target = "creationDate", source = "creationDate", dateFormat = DATE_FORMAT)
+    @Mapping(target = "changeDate", source = "changeDate", dateFormat = DATE_FORMAT)
+    List<UserResponse> userListToUserResponseListMap(List<User> users);
 }

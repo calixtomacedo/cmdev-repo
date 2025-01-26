@@ -5,7 +5,6 @@ public record UserResponse(
         Long idUser,
         String name,
         String email,
-        String password,
         String role,
         Boolean isActive,
         String creationDate,
