@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface UserMapper {
 
-    public final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss.SSS";
+    public final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
 
     @Mapping(target = "idUser", ignore = true)
     @Mapping(target = "isActive", expression = "java(Boolean.TRUE)")
