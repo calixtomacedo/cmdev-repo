@@ -1,3 +1,6 @@
 spring:
   application:
     name: date-java-time-examples
+
+  jackson:
+    time-zone: UTC
