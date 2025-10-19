@@ -13,5 +13,4 @@ server:
     include-stacktrace: never
     include-message: always
 
-
 #https://cursos.alura.com.br/course/spring-boot-aplique-boas-praticas-proteja-api-rest/task/117151
